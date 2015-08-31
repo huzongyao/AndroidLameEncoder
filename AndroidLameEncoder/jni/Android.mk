@@ -28,5 +28,7 @@ LOCAL_SRC_FILES := \
 LOCAL_SRC_FILES += \
 	../lame_encoder.c
 	
+LOCAL_LDLIBS := -llog
+LOCAL_CFLAGS += -DLOG_ENABLE
 
 include $(BUILD_SHARED_LIBRARY)

@@ -73,6 +73,9 @@ public class LameEncoder {
 	 */
 	public native static void close();
 	
+	/**
+	 * load library
+	 */
 	static {
 		System.loadLibrary("lame");
 	}
