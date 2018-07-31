@@ -4,16 +4,19 @@ import android.Manifest;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.blankj.utilcode.util.PermissionUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.blankj.utilcode.util.Utils;
+import com.hzy.lame.LameEncoder;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button mButtonStart;
     private Mp3Recorder mMp3Recorder;
     private boolean mIsRunning;
+    private TextView mLibraryVersion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mButtonStart = findViewById(R.id.button_start);
         mButtonStart.setOnClickListener(v -> switchRecorder());
+        mLibraryVersion = findViewById(R.id.library_version);
+        mLibraryVersion.setText(getString(R.string.lame_version, LameEncoder.getVersionString()));
     }
 
     private void switchRecorder() {

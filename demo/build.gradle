@@ -2,7 +2,16 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 27
+    buildToolsVersion "27.0.3"
 
+    signingConfigs {
+        demokey {
+            storeFile file('demokey.jks')
+            storePassword "demokey"
+            keyAlias 'demokey'
+            keyPassword 'demokey'
+        }
+    }
     defaultConfig {
         applicationId "com.hzy.lame.demo"
         minSdkVersion 15
@@ -16,9 +25,14 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
     }
     buildTypes {
+        debug {
+            minifyEnabled false
+            signingConfig signingConfigs.demokey
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.demokey
         }
     }
 }

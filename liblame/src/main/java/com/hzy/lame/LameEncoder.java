@@ -2,6 +2,14 @@ package com.hzy.lame;
 
 public class LameEncoder {
 
+
+    /**
+     * Get The library version
+     *
+     * @return version String
+     */
+    public static native String getVersionString();
+
     /**
      * Initialize LAME.
      *

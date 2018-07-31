@@ -1,7 +1,6 @@
 #include <jni.h>
 #include <android/log.h>
-
-#include "lame.h"
+#include <lame.h>
 
 #define JNI_FUNC(f) Java_com_hzy_lame_LameEncoder_##f
 
@@ -73,4 +72,11 @@ JNICALL JNI_FUNC(close)(JNIEnv *env, jclass cls) {
     LOGD("native close");
     lame_close(glf);
     glf = NULL;
+}
+
+JNIEXPORT jstring JNICALL
+JNICALL JNI_FUNC(getVersionString)(JNIEnv *env, jclass type) {
+    char info[1024] = {0};
+    sprintf(info, "%s %s", get_lame_version(), get_lame_os_bitness());
+    return (*env)->NewStringUTF(env, info);
 }

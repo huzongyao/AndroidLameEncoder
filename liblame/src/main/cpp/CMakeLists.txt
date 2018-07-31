@@ -5,7 +5,7 @@
 
 cmake_minimum_required(VERSION 3.4.1)
 
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -DSTDC_HEADERS")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -DHAVE_CONFIG_H")
 # Creates and names a library, sets it as either STATIC
 # or SHARED, and provides the relative paths to its source code.
 # You can define multiple libraries, and CMake builds it for you.
@@ -32,7 +32,8 @@ set(NATIVE_SRCS "lame_encoder.c"
         "liblame/newmdct.c" 
         "liblame/quantize_pvt.c" 
         "liblame/takehiro.c" 
-        "liblame/version.c")
+        "liblame/version.c"
+        "liblame/vector/xmm_quantize_sub.c")
 
 add_library(lame SHARED ${NATIVE_SRCS})
 

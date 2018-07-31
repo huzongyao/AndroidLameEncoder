@@ -3,4 +3,5 @@
     <string name="start">Start</string>
     <string name="stop">Stop</string>
     <string name="permission_error">Permission Error!</string>
+    <string name="lame_version">Lame Version: %s</string>
 </resources>
